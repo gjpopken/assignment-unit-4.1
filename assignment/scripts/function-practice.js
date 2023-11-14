@@ -63,8 +63,16 @@ console.log('The last of my favorite owls is:', getLast(favoriteOwls));
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
 function find(value, array) {
-
+for (let i of array) {
+  if (i === value) {
+    return true;
+  }
 }
+return false;
+}
+
+console.log('Is snowy owl one of my favorite owls?', find('snowy owl', favoriteOwls));
+console.log('Is burrowing owl one of my favorite owls?', find('burrowing owl', favoriteOwls));
 
 // ----------------------
 // Stretch Goals
@@ -72,29 +80,63 @@ function find(value, array) {
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  if (letter === string[0]) {
+    return true;
+  } else {
+    return false;
+  }
 }
-
+console.log('Is G the first letter in my name?', isFirstLetter('G', 'Gavin'));
+console.log('Is F the first letter in my name?', isFirstLetter('F', 'Gavin'));
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
   // TODO: loop to add items
-
+  for (let i of array) {
+    sum += i;
+  }
   // TODO: return the sum
+  return sum;
 }
+
+const myNumbers = [-101, 1, 2, 8, 101, -81, 81];
+
+console.log('My numbers are:', myNumbers);
+console.log('The sum of these numbers is:', sumAll(myNumbers));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
-
+function allPositive(array) {
+  const posArray = [];
+  for (let i of array) {
+    if (i > 0) {
+      posArray.push(i);
+    }
+  }
+  return posArray;
 }
+console.log('All the positive numbers from my numbers:', allPositive(myNumbers));
+
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+
+// The problem: https://edabit.com/challenge/8Qg78sf5SNDEANKti
+//Writing a function to count all the legs between a farmer's chickens, cows, and pigs.
+
+function countLegs(chickens, cows, pigs) {
+  const fourLegged = cows + pigs;
+  const totalLegs = 4*fourLegged + 2*chickens;
+  return totalLegs;
+}
+
+console.log('I have 3 chickens, 5 cows, and 0 pigs. Total legs:', countLegs(3, 5, 0));
+console.log('I have 10 chickens, 40 cows, and 100 pigs. Total legs:', countLegs(10, 40, 100));
 
 
 // DO NOT MODIFY
